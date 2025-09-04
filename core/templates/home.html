@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">Adicionar Nova Tarefa</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="{{ form.titulo.id_for_label }}" class="form-label">Título</label>
+                        {{ form.titulo }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.descricao.id_for_label }}" class="form-label">Descrição</label>
+                        {{ form.descricao }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.status.id_for_label }}" class="form-label">Status</label>
+                        {{ form.status }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="{{ form.atribuido_a.id_for_label }}" class="form-label">Atribuir a (Opcional)</label>
+                        {{ form.atribuido_a }}
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Adicionar Tarefa</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <h2>Minhas Tarefas</h2>
+        
+        <div class="mb-3">
+            <a href="{% url 'home' %}" class="btn btn-sm btn-outline-dark">Todas</a>
+            <a href="?status=pendente" class="btn btn-sm btn-outline-warning">Pendentes</a>
+            <a href="?status=em_andamento" class="btn btn-sm btn-outline-info">Em Andamento</a>
+            <a href="?status=concluida" class="btn btn-sm btn-outline-success">Concluídas</a>
+        </div>
+
+        <div class="list-group">
+            {% for tarefa in tarefas %}
+            <div class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">{{ tarefa.titulo }}</h5>
+                    <small>
+                        <span class="badge 
+                            {% if tarefa.status == 'pendente' %}bg-warning text-dark
+                            {% elif tarefa.status == 'em_andamento' %}bg-info text-dark
+                            {% else %}bg-success{% endif %}">
+                            {{ tarefa.get_status_display }}
+                        </span>
+                    </small>
+                </div>
+
+                <p class="mb-1">
+                    <small>
+                        Criado por: {{ tarefa.usuario.username }}
+                        {% if tarefa.atribuido_a %} | Atribuído a: <strong>{{ tarefa.atribuido_a.username }}</strong>{% endif %}
+                    </small>
+                </p>
+
+                <p class="mb-1">{{ tarefa.descricao|linebreaks }}</p>
+                
+                <small>
+                    <a href="{% url 'editar_tarefa' tarefa.id %}" class="btn btn-sm btn-secondary">Editar</a>
+                    <form method="post" action="{% url 'excluir_tarefa' tarefa.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza?');">Excluir</button>
+                    </form>
+                </small>
+            </div>
+            {% empty %}
+            <p class="list-group-item">Você ainda não tem tarefas.</p>
+            {% endfor %}
+        </div>
+    </div>
+    
+</div>
+{% endblock %}
