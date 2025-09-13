@@ -30,7 +30,7 @@ cd NOME-DO-SEU-REPOSITORIO
 ```bash
 # Windows
 python -m venv venv
-.\venv\Scripts\activate
+.\venv\Scripts\Activate.ps1
 
 # macOS / Linux
 python3 -m venv venv
