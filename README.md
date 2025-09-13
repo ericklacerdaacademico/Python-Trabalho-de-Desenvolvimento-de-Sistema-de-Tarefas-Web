@@ -22,15 +22,15 @@ Siga os passos abaixo para rodar o projeto em sua máquina local.
 
 **1. Clone o repositório:**
 ```bash
-git clone [Colocar git do erick](https://github.com/SEU-USUARIO/NOME-DO-SEU-REPOSITORIO.git)
-cd NOME-DO-SEU-REPOSITORIO
+git clone (https://github.com/ericklacerdaacademico/Python-Trabalho-de-Desenvolvimento-de-Sistema-de-Tarefas-Web.git)
+cd (caminho aonde foi gerado o git clone)
 ```
 
 **2. Crie e ative um ambiente virtual:**
 ```bash
 # Windows
 python -m venv venv
-.\venv\Scripts\activate
+.\venv\Scripts\Activate.ps1
 
 # macOS / Linux
 python3 -m venv venv
@@ -79,5 +79,4 @@ A aplicação estará disponível em `http://127.0.0.1:8000/`.
 ---
 
 ## Autores
-* **Seu Nome Completo**
-* **Nome Completo do(a) Colega**
+* Erick Borges
