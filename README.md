@@ -22,7 +22,7 @@ Siga os passos abaixo para rodar o projeto em sua máquina local.
 
 **1. Clone o repositório:**
 ```bash
-git clone [Colocar git do erick](https://github.com/SEU-USUARIO/NOME-DO-SEU-REPOSITORIO.git)
+git clone (https://github.com/ericklacerdaacademico/Python-Trabalho-de-Desenvolvimento-de-Sistema-de-Tarefas-Web.git)
 cd NOME-DO-SEU-REPOSITORIO
 ```
 
@@ -79,5 +79,4 @@ A aplicação estará disponível em `http://127.0.0.1:8000/`.
 ---
 
 ## Autores
-* **Seu Nome Completo**
-* **Nome Completo do(a) Colega**
+* Erick Borges
