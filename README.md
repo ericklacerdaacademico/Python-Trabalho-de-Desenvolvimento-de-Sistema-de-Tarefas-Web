@@ -23,7 +23,7 @@ Siga os passos abaixo para rodar o projeto em sua máquina local.
 **1. Clone o repositório:**
 ```bash
 git clone (https://github.com/ericklacerdaacademico/Python-Trabalho-de-Desenvolvimento-de-Sistema-de-Tarefas-Web.git)
-cd NOME-DO-SEU-REPOSITORIO
+cd (caminho aonde foi gerado o git clone)
 ```
 
 **2. Crie e ative um ambiente virtual:**
